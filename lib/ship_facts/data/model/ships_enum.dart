@@ -6,7 +6,5 @@ enum ShipsEnum {
   const ShipsEnum(this.value);
   final String value;
 
-  String get presentationValue {
-    return '';
-  }
+  //TODO: add helper methods for manipulating presentation
 }

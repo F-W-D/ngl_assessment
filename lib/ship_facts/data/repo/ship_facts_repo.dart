@@ -1,10 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
-import 'package:ngl_assessment/ship_facts/data/ship_data.dart';
-import 'package:ngl_assessment/ship_facts/data/ships_enum.dart';
+import 'package:ngl_assessment/ship_facts/data/model/ship_data.dart';
+import 'package:ngl_assessment/ship_facts/data/model/ships_enum.dart';
 import 'package:ngl_assessment/util/failure.dart';
 
-abstract class IShipFactsRepo {}
+abstract class IShipFactsRepo {
+  Future<Either<Failure, ShipData>> fetchShipData({
+    required ShipsEnum ship,
+  });
+}
 
 class ShipFactsRepo implements IShipFactsRepo {
   final _dio = Dio(
@@ -21,7 +25,7 @@ class ShipFactsRepo implements IShipFactsRepo {
     try {
       final response = await _dio.get('/${ship.value}');
       if (response.statusCode == 200 && response.data is Map<String, dynamic>) {
-        // Process the response data
+        // Map the response data
         final data = ShipData.fromJson(response.data as Map<String, dynamic>);
         return Right(data);
       } else {
