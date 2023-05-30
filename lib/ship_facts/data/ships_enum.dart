@@ -5,4 +5,8 @@ enum ShipsEnum {
 
   const ShipsEnum(this.value);
   final String value;
+
+  String get presentationValue {
+    return '';
+  }
 }
