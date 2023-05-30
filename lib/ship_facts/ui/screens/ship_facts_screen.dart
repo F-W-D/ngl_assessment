@@ -5,6 +5,7 @@ import 'package:ngl_assessment/ship_facts/bloc/ship_facts_event.dart';
 import 'package:ngl_assessment/ship_facts/bloc/ship_facts_state.dart';
 import 'package:ngl_assessment/ship_facts/data/model/ships_enum.dart';
 import 'package:ngl_assessment/ship_facts/injection.dart';
+import 'package:ngl_assessment/ship_facts/test_keys.dart';
 import 'package:ngl_assessment/ship_facts/ui/widgets/ship_facts_error_body.dart';
 import 'package:ngl_assessment/ship_facts/ui/widgets/ship_facts_success_body.dart';
 
@@ -22,6 +23,7 @@ class ShipFactsScreen extends StatelessWidget {
         return bloc;
       },
       child: Scaffold(
+        key: TestKeys.keyShipFactsScreen,
         appBar: AppBar(
           title: BlocBuilder<ShipFactsBloc, ShipFactsState>(
             buildWhen: (previous, current) => current is ShipFactsSuccessState,
