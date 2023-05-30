@@ -23,7 +23,11 @@ class ShipsListScreen extends StatelessWidget {
         itemCount: ShipsEnum.values.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(ShipsEnum.values[index].value),
+            leading: const Icon(Icons.add_location),
+            title: Text(
+              ShipsEnum.values[index].value,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
             trailing: const Icon(Icons.chevron_right),
             onTap: () async {
               //note: instead of using 'routes' we can use navigator
@@ -35,6 +39,7 @@ class ShipsListScreen extends StatelessWidget {
                   ),
                 ),
               );
+              debugPrint(result);
             },
           );
         },

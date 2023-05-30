@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ngl_assessment/ship_facts/injection.dart' as shipFacts;
+import 'package:ngl_assessment/ship_facts/injection.dart' as ship_facts;
 import 'package:ngl_assessment/ship_facts/ui/screens/ships_list_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   //note: handle DI before running app
-  shipFacts.init();
+  ship_facts.init();
 
   runApp(const MyApp());
 }

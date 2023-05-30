@@ -1,7 +1,7 @@
 class ShipData {
   final String shipName;
-  final int passengerCapacity;
-  final int crew;
+  final String passengerCapacity;
+  final String crew;
   final String inauguralDate;
 
   ShipData(
@@ -12,7 +12,7 @@ class ShipData {
   );
 
   factory ShipData.fromJson(Map<String, dynamic> json) {
-    //NOTE: for simplicity, we have bypassed json_annotation 
+    //NOTE: for simplicity, we have bypassed json_annotation
     // to avoid nesting & generated files
     final shipName = json["shipName"];
     final shipFacts = json["shipFacts"] as Map<String, dynamic>;

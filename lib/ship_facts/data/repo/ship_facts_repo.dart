@@ -19,6 +19,7 @@ class ShipFactsRepo implements IShipFactsRepo {
     ),
   );
 
+  @override
   Future<Either<Failure, ShipData>> fetchShipData({
     required ShipsEnum ship,
   }) async {
